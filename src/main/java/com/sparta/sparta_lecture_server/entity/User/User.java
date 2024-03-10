@@ -1,11 +1,15 @@
 package com.sparta.sparta_lecture_server.entity.User;
 
 import com.sparta.sparta_lecture_server.dto.user.request.SignUpRequestDto;
+import com.sparta.sparta_lecture_server.entity.Comment;
 import com.sparta.sparta_lecture_server.entity.User.enums.GenderEnum;
 import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -30,6 +34,9 @@ public class User {
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     private RoleEnum roleEnum;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> orderList = new ArrayList<>();
 
     public User(SignUpRequestDto signUpRequestDto) {
         this.password = signUpRequestDto.getPassword();

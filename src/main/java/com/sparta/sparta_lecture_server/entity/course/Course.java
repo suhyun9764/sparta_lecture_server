@@ -1,10 +1,14 @@
 package com.sparta.sparta_lecture_server.entity.course;
 
 import com.sparta.sparta_lecture_server.dto.course.CourseRequestDto;
+import com.sparta.sparta_lecture_server.entity.Comment;
 import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
@@ -31,6 +35,9 @@ public class Course extends DateValue{
 
     @Column(nullable = false)
     private String description;
+
+    @OneToMany(mappedBy = "course")
+    private List<Comment> orderList = new ArrayList<>();
 
 
     public Course(CourseRequestDto courseRequestDto,Instructor instructor) {
