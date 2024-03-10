@@ -22,7 +22,7 @@ public class User {
     private String email;
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
-    private GenderEnum genderEnum;
+    private GenderEnum gender;
     @Column(nullable = false)
     private String phone;
     @Column(nullable = false)
@@ -34,7 +34,7 @@ public class User {
     public User(SignUpRequestDto signUpRequestDto) {
         this.password = signUpRequestDto.getPassword();
         this.email = signUpRequestDto.getEmail();
-        this.genderEnum = signUpRequestDto.getGenderEnum();
+        this.gender = signUpRequestDto.getGender();
         this.phone = signUpRequestDto.getPhone();
         this.address = signUpRequestDto.getAddress();
         this.roleEnum = signUpRequestDto.getRoleEnum();

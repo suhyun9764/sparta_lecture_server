@@ -9,7 +9,7 @@ import lombok.Getter;
 public class UserResponseDto {
     private Long id;
     private String email;
-    private GenderEnum genderEnum;
+    private GenderEnum gender;
     private String phone;
     private String address;
     private RoleEnum roleEnum;
@@ -17,7 +17,7 @@ public class UserResponseDto {
     public UserResponseDto(User user) {
         this.id = user.getId();
         this.email = user.getEmail();
-        this.genderEnum = user.getGenderEnum();
+        this.gender = user.getGender();
         this.phone = user.getPhone();
         this.address = user.getAddress();
         this.roleEnum = user.getRoleEnum();
