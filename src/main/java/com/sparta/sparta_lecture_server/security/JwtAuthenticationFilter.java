@@ -1,8 +1,8 @@
 package com.sparta.sparta_lecture_server.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sparta.sparta_lecture_server.dto.LoginRequestDto;
-import com.sparta.sparta_lecture_server.entity.Role;
+import com.sparta.sparta_lecture_server.dto.user.request.LoginRequestDto;
+import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
 import com.sparta.sparta_lecture_server.jwt.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,9 +45,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) {
         String username = ((UserDetailsImpl) authResult.getPrincipal()).getUsername();
-        Role role = ((UserDetailsImpl) authResult.getPrincipal()).getUser().getRole();
+        RoleEnum roleEnum = ((UserDetailsImpl) authResult.getPrincipal()).getUser().getRoleEnum();
 
-        String token = jwtUtil.createToken(username, role);
+        String token = jwtUtil.createToken(username, roleEnum);
         response.addHeader(JwtUtil.AUTHORIZATION_HEADER, token);
     }
 

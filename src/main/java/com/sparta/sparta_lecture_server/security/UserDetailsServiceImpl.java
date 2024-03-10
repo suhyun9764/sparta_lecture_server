@@ -1,6 +1,6 @@
 package com.sparta.sparta_lecture_server.security;
 
-import com.sparta.sparta_lecture_server.entity.User;
+import com.sparta.sparta_lecture_server.entity.User.User;
 import com.sparta.sparta_lecture_server.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

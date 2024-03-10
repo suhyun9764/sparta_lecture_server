@@ -1,6 +1,8 @@
-package com.sparta.sparta_lecture_server.entity;
+package com.sparta.sparta_lecture_server.entity.User;
 
-import com.sparta.sparta_lecture_server.dto.SignUpRequestDto;
+import com.sparta.sparta_lecture_server.dto.user.request.SignUpRequestDto;
+import com.sparta.sparta_lecture_server.entity.User.enums.GenderEnum;
+import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,22 +22,22 @@ public class User {
     private String email;
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
-    private Gender gender;
+    private GenderEnum genderEnum;
     @Column(nullable = false)
     private String phone;
     @Column(nullable = false)
     private String address;
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
-    private Role role;
+    private RoleEnum roleEnum;
 
     public User(SignUpRequestDto signUpRequestDto) {
         this.password = signUpRequestDto.getPassword();
         this.email = signUpRequestDto.getEmail();
-        this.gender = signUpRequestDto.getGender();
+        this.genderEnum = signUpRequestDto.getGenderEnum();
         this.phone = signUpRequestDto.getPhone();
         this.address = signUpRequestDto.getAddress();
-        this.role = signUpRequestDto.getRole();
+        this.roleEnum = signUpRequestDto.getRoleEnum();
 
 
     }

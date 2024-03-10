@@ -1,11 +1,11 @@
-package com.sparta.sparta_lecture_server.entity;
+package com.sparta.sparta_lecture_server.entity.User.enums;
 
-public enum Role {
+public enum RoleEnum {
     ADMIN(Authority.ADMIN),
     USER(Authority.USER);
 
     private final String authority;
-    Role(String authority) {
+    RoleEnum(String authority) {
         this.authority = authority;
     }
 

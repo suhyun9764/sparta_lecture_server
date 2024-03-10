@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.dto;
+package com.sparta.sparta_lecture_server.dto.user.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
