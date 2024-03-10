@@ -15,8 +15,6 @@ public class InstructorResponseDto {
 
     private String company;
 
-    private String phone;
-
     private String intro;
 
 
@@ -25,7 +23,6 @@ public class InstructorResponseDto {
         this.name = instructor.getName();
         this.experience = instructor.getExperience();
         this.company = instructor.getCompany();
-        this.phone = instructor.getPhone();
         this.intro = instructor.getIntro();
     }
 }
