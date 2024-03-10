@@ -1,17 +1,14 @@
 package com.sparta.sparta_lecture_server.dto.course;
 
 import com.sparta.sparta_lecture_server.dto.instructor.response.InstructorResponseDto;
-import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
 import com.sparta.sparta_lecture_server.entity.course.Category;
 import com.sparta.sparta_lecture_server.entity.course.Course;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Getter
-public class CourseResponseDto {
+public class CourseInstructorResponseDto {
     private String title;
 
     private int price;
@@ -24,7 +21,7 @@ public class CourseResponseDto {
 
     private LocalDate registerDate;
 
-    public CourseResponseDto(Course course) {
+    public CourseInstructorResponseDto(Course course) {
         this.title = course.getTitle();
         this.price = course.getPrice();
         this.category = course.getCategory();

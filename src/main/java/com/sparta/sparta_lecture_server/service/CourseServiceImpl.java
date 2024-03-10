@@ -1,31 +1,53 @@
 package com.sparta.sparta_lecture_server.service;
 
+import com.sparta.sparta_lecture_server.dto.course.CourseCategoryResponseDto;
 import com.sparta.sparta_lecture_server.dto.course.CourseRequestDto;
-import com.sparta.sparta_lecture_server.dto.course.CourseResponseDto;
+import com.sparta.sparta_lecture_server.dto.course.CourseInstructorResponseDto;
 import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
+import com.sparta.sparta_lecture_server.entity.course.Category;
 import com.sparta.sparta_lecture_server.entity.course.Course;
 import com.sparta.sparta_lecture_server.repository.CourseRepository;
 import com.sparta.sparta_lecture_server.repository.InstructorRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
     private final CourseRepository courseRepository;
     private final InstructorRepository instructorRepository;
+
     @Override
-    public CourseResponseDto save(CourseRequestDto courseRequestDto) {
+    public CourseInstructorResponseDto save(CourseRequestDto courseRequestDto) {
         Instructor instructor = instructorRepository.findById(courseRequestDto.getInstructor_id()).orElseThrow(() ->
                 new NullPointerException("해당하는 강사가 존재하지 않습니다"));
 
         Course course = courseRepository.save(new Course(courseRequestDto, instructor));
-        return new CourseResponseDto(course);
+        return new CourseInstructorResponseDto(course);
     }
 
     @Override
-    public CourseResponseDto findById(Long courseId) {
+    public CourseInstructorResponseDto findById(Long courseId) {
         Course course = courseRepository.findById(courseId).orElseThrow(() -> new NullPointerException("해당하는 강의가 존재하지 않습니다"));
-        return new CourseResponseDto(course);
+        return new CourseInstructorResponseDto(course);
+    }
+
+    @Override
+    public List<CourseCategoryResponseDto> findByCategory(Category category, String sortBy, boolean isAsc) {
+        if ("title".equals(sortBy) || "registerDate".equals(sortBy) || "price".equals(sortBy)) {
+            Sort.Direction direction = isAsc ? Sort.Direction.ASC : Sort.Direction.DESC;
+            Sort sort = Sort.by(direction, sortBy);
+            List<CourseCategoryResponseDto> list = courseRepository.findByCategory(category, sort).stream().map(CourseCategoryResponseDto::new).toList();
+            return list;
+
+        }
+
+        throw new IllegalArgumentException("정렬 기준이 잘못되었습니다");
+
     }
 }

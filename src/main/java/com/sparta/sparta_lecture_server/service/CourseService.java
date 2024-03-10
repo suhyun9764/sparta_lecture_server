@@ -1,11 +1,17 @@
 package com.sparta.sparta_lecture_server.service;
 
+import com.sparta.sparta_lecture_server.dto.course.CourseCategoryResponseDto;
 import com.sparta.sparta_lecture_server.dto.course.CourseRequestDto;
-import com.sparta.sparta_lecture_server.dto.course.CourseResponseDto;
+import com.sparta.sparta_lecture_server.dto.course.CourseInstructorResponseDto;
+import com.sparta.sparta_lecture_server.entity.course.Category;
+
+import java.util.List;
 
 public interface CourseService {
 
-    CourseResponseDto save(CourseRequestDto courseRequestDto);
+    CourseInstructorResponseDto save(CourseRequestDto courseRequestDto);
 
-    CourseResponseDto findById(Long courseId);
+    CourseInstructorResponseDto findById(Long courseId);
+
+    List<CourseCategoryResponseDto> findByCategory(Category category, String sortBy, boolean isAsc);
 }
