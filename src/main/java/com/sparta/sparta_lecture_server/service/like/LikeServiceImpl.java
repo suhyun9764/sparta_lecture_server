@@ -11,6 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+import static com.sparta.sparta_lecture_server.constants.course.Messages.NOT_FOUND_COURSE;
+import static com.sparta.sparta_lecture_server.constants.like.messages.LIKE_CANCEL;
+import static com.sparta.sparta_lecture_server.constants.like.messages.LIKE_SAVE;
+
 @Service
 @RequiredArgsConstructor
 public class LikeServiceImpl implements LikeService{
@@ -19,14 +23,19 @@ public class LikeServiceImpl implements LikeService{
     @Transactional
     @Override
     public String pressLikeButton(Long courseId, User user) {
-        Course course = courseRepository.findById(courseId).orElseThrow(() ->
-                new NullPointerException("해당하는 강의가 없습니다"));
+        Course course = getCourse(courseId);
         Optional<Like> like = likeRepository.findByCourseAndUser(course, user);
         if(like.isPresent()) {
             likeRepository.delete(like.get());
-            return "좋아요 취소";
+            return LIKE_CANCEL;
         }
         likeRepository.save(new Like(course,user));
-        return "좋아요!";
+        return LIKE_SAVE;
+    }
+
+    private Course getCourse(Long courseId) {
+        Course course = courseRepository.findById(courseId).orElseThrow(() ->
+                new NullPointerException(NOT_FOUND_COURSE));
+        return course;
     }
 }

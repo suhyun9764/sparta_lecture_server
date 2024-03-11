@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/courses/{courseId}/like")
 public class LikeController {
     private final LikeService likeService;
-    @PostMapping
+    @PostMapping // 좋아요
     public ResponseEntity<String> pressLikeButton(@PathVariable Long courseId, @AuthenticationPrincipal UserDetailsImpl userDetails){
         return ResponseEntity.ok(likeService.pressLikeButton(courseId,userDetails.getUser()));
     }
