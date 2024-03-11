@@ -18,7 +18,7 @@ import static com.sparta.sparta_lecture_server.constants.user.Messages.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
