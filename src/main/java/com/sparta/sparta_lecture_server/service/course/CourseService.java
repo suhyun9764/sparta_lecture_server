@@ -13,6 +13,6 @@ public interface CourseService {
     CourseInstructorResponseDto save(CourseRequestDto courseRequestDto);
     //선택한 강의 조회
     CourseInstructorResponseDto findById(Long courseId);
-
+    //카테고리 별로 조회
     List<CourseCategoryResponseDto> findByCategory(Category category, String sortBy, boolean isAsc);
 }

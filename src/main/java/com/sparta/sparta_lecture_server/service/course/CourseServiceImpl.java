@@ -36,14 +36,13 @@ public class CourseServiceImpl implements CourseService {
         return new CourseInstructorResponseDto(course);
     }
 
-    @Override
+    @Override // 카테고리 별 조회(정렬 기준에 따른 정렬)
     public List<CourseCategoryResponseDto> findByCategory(Category category, String sortBy, boolean isAsc) {
         if ("title".equals(sortBy) || "registerDate".equals(sortBy) || "price".equals(sortBy)) {
             Sort.Direction direction = isAsc ? Sort.Direction.ASC : Sort.Direction.DESC;
             Sort sort = Sort.by(direction, sortBy);
             List<CourseCategoryResponseDto> list = courseRepository.findByCategory(category, sort).stream().map(CourseCategoryResponseDto::new).toList();
             return list;
-
         }
 
         throw new IllegalArgumentException("정렬 기준이 잘못되었습니다");

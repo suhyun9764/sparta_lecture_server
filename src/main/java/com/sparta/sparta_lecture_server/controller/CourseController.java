@@ -32,7 +32,7 @@ public class CourseController {
     public ResponseEntity<CourseInstructorResponseDto> findById(@PathVariable Long course_id ){
         return ResponseEntity.ok(courseService.findById(course_id));
     }
-
+    //카테고리 별 조회
     @GetMapping("/category/{category}")
     public ResponseEntity<List<CourseCategoryResponseDto>> findByCategory(@PathVariable @Valid Category category, @RequestParam("sortBy") String sortBy,
                                                                           @RequestParam("isAsc") boolean isAsc ){
