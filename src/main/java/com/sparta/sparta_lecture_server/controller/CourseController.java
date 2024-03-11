@@ -20,6 +20,7 @@ import static com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum.Author
 @RequestMapping("/api/courses")
 public class CourseController {
     private final CourseService courseService;
+    // 강의 등록
     @PostMapping
     @Secured(ADMIN)
     public ResponseEntity<CourseInstructorResponseDto> save(@RequestBody CourseRequestDto courseRequestDto){

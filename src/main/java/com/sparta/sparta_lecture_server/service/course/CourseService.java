@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface CourseService {
 
+    // 강의 등록
     CourseInstructorResponseDto save(CourseRequestDto courseRequestDto);
 
     CourseInstructorResponseDto findById(Long courseId);

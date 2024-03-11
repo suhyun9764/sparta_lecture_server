@@ -1,7 +1,7 @@
 package com.sparta.sparta_lecture_server.service.course;
 
-import com.sparta.sparta_lecture_server.dto.course.response.CourseCategoryResponseDto;
 import com.sparta.sparta_lecture_server.dto.course.request.CourseRequestDto;
+import com.sparta.sparta_lecture_server.dto.course.response.CourseCategoryResponseDto;
 import com.sparta.sparta_lecture_server.dto.course.response.CourseInstructorResponseDto;
 import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
 import com.sparta.sparta_lecture_server.entity.course.Category;
@@ -20,11 +20,10 @@ public class CourseServiceImpl implements CourseService {
     private final CourseRepository courseRepository;
     private final InstructorRepository instructorRepository;
 
-    @Override
-    public CourseInstructorResponseDto save(CourseRequestDto courseRequestDto) {
-        Instructor instructor = instructorRepository.findById(courseRequestDto.getInstructor_id()).orElseThrow(() ->
-                new NullPointerException("해당하는 강사가 존재하지 않습니다"));
 
+    @Override // 강의 등록
+    public CourseInstructorResponseDto save(CourseRequestDto courseRequestDto) {
+        Instructor instructor = getInstructor(courseRequestDto);
         Course course = courseRepository.save(new Course(courseRequestDto, instructor));
         return new CourseInstructorResponseDto(course);
     }
@@ -48,4 +47,11 @@ public class CourseServiceImpl implements CourseService {
         throw new IllegalArgumentException("정렬 기준이 잘못되었습니다");
 
     }
+
+    private Instructor getInstructor(CourseRequestDto courseRequestDto) {
+        Instructor instructor = instructorRepository.findById(courseRequestDto.getInstructor_id()).orElseThrow(() ->
+                new NullPointerException("해당하는 강사가 존재하지 않습니다"));
+        return instructor;
+    }
+
 }

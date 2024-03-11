@@ -1,9 +1,8 @@
 package com.sparta.sparta_lecture_server.dto.course.request;
 
-import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
 import com.sparta.sparta_lecture_server.entity.course.Category;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class CourseRequestDto {
     @NotBlank
     private String title;
-    @NotBlank
+    @NotNull
     private int price;
     @NotBlank
     private Category category;
