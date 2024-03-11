@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server;
+package com.sparta.sparta_lecture_server.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

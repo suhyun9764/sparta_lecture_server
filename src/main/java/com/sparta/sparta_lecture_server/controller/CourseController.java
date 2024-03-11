@@ -1,10 +1,10 @@
 package com.sparta.sparta_lecture_server.controller;
 
-import com.sparta.sparta_lecture_server.dto.course.CourseCategoryResponseDto;
-import com.sparta.sparta_lecture_server.dto.course.CourseRequestDto;
-import com.sparta.sparta_lecture_server.dto.course.CourseInstructorResponseDto;
+import com.sparta.sparta_lecture_server.dto.course.response.CourseCategoryResponseDto;
+import com.sparta.sparta_lecture_server.dto.course.request.CourseRequestDto;
+import com.sparta.sparta_lecture_server.dto.course.response.CourseInstructorResponseDto;
 import com.sparta.sparta_lecture_server.entity.course.Category;
-import com.sparta.sparta_lecture_server.service.CourseService;
+import com.sparta.sparta_lecture_server.service.course.CourseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

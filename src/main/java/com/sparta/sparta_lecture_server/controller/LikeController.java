@@ -1,7 +1,7 @@
 package com.sparta.sparta_lecture_server.controller;
 
 import com.sparta.sparta_lecture_server.security.UserDetailsImpl;
-import com.sparta.sparta_lecture_server.service.LikeService;
+import com.sparta.sparta_lecture_server.service.like.LikeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

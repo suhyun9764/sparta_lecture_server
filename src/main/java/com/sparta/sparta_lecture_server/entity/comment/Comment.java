@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.entity;
+package com.sparta.sparta_lecture_server.entity.comment;
 
 import com.sparta.sparta_lecture_server.dto.comment.CommentRequestDto;
 import com.sparta.sparta_lecture_server.entity.User.User;

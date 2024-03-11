@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.dto.course;
+package com.sparta.sparta_lecture_server.dto.course.response;
 
 import com.sparta.sparta_lecture_server.dto.instructor.response.InstructorResponseDto;
 import com.sparta.sparta_lecture_server.entity.course.Category;

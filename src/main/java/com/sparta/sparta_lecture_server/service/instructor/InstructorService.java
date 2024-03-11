@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.service;
+package com.sparta.sparta_lecture_server.service.instructor;
 
 import com.sparta.sparta_lecture_server.dto.instructor.request.InstructorRequestDto;
 import com.sparta.sparta_lecture_server.dto.instructor.response.InstructorResponseDto;

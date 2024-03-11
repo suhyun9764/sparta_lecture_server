@@ -1,7 +1,7 @@
 package com.sparta.sparta_lecture_server.entity.User;
 
 import com.sparta.sparta_lecture_server.dto.user.request.SignUpRequestDto;
-import com.sparta.sparta_lecture_server.entity.Comment;
+import com.sparta.sparta_lecture_server.entity.comment.Comment;
 import com.sparta.sparta_lecture_server.entity.User.enums.GenderEnum;
 import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
 import com.sparta.sparta_lecture_server.entity.like.Like;

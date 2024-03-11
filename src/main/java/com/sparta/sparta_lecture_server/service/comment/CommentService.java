@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.service;
+package com.sparta.sparta_lecture_server.service.comment;
 
 import com.sparta.sparta_lecture_server.dto.comment.CommentRequestDto;
 import com.sparta.sparta_lecture_server.dto.comment.CommentResponseDto;

@@ -1,7 +1,7 @@
 package com.sparta.sparta_lecture_server.controller;
 
 import com.sparta.sparta_lecture_server.security.UserDetailsImpl;
-import com.sparta.sparta_lecture_server.service.UserService;
+import com.sparta.sparta_lecture_server.service.user.UserService;
 import com.sparta.sparta_lecture_server.dto.user.request.SignUpRequestDto;
 import com.sparta.sparta_lecture_server.dto.user.response.UserResponseDto;
 import jakarta.validation.Valid;

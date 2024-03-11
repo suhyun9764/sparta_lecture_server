@@ -1,16 +1,14 @@
-package com.sparta.sparta_lecture_server.service;
+package com.sparta.sparta_lecture_server.service.course;
 
-import com.sparta.sparta_lecture_server.dto.course.CourseCategoryResponseDto;
-import com.sparta.sparta_lecture_server.dto.course.CourseRequestDto;
-import com.sparta.sparta_lecture_server.dto.course.CourseInstructorResponseDto;
+import com.sparta.sparta_lecture_server.dto.course.response.CourseCategoryResponseDto;
+import com.sparta.sparta_lecture_server.dto.course.request.CourseRequestDto;
+import com.sparta.sparta_lecture_server.dto.course.response.CourseInstructorResponseDto;
 import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
 import com.sparta.sparta_lecture_server.entity.course.Category;
 import com.sparta.sparta_lecture_server.entity.course.Course;
 import com.sparta.sparta_lecture_server.repository.CourseRepository;
 import com.sparta.sparta_lecture_server.repository.InstructorRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 

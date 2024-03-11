@@ -1,7 +1,7 @@
 package com.sparta.sparta_lecture_server.entity.course;
 
-import com.sparta.sparta_lecture_server.dto.course.CourseRequestDto;
-import com.sparta.sparta_lecture_server.entity.Comment;
+import com.sparta.sparta_lecture_server.dto.course.request.CourseRequestDto;
+import com.sparta.sparta_lecture_server.entity.comment.Comment;
 import com.sparta.sparta_lecture_server.entity.Instructor.Instructor;
 import com.sparta.sparta_lecture_server.entity.like.Like;
 import jakarta.persistence.*;

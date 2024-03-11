@@ -3,7 +3,7 @@ package com.sparta.sparta_lecture_server.controller;
 import com.sparta.sparta_lecture_server.dto.instructor.request.InstructorRequestDto;
 import com.sparta.sparta_lecture_server.dto.instructor.response.InstructorResponseDto;
 import com.sparta.sparta_lecture_server.security.UserDetailsImpl;
-import com.sparta.sparta_lecture_server.service.InstructorService;
+import com.sparta.sparta_lecture_server.service.instructor.InstructorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;

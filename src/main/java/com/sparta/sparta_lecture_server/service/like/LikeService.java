@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.service;
+package com.sparta.sparta_lecture_server.service.like;
 
 import com.sparta.sparta_lecture_server.entity.User.User;
 

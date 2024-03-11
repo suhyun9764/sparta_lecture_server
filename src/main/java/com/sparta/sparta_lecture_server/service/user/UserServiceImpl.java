@@ -1,4 +1,4 @@
-package com.sparta.sparta_lecture_server.service;
+package com.sparta.sparta_lecture_server.service.user;
 
 import com.sparta.sparta_lecture_server.dto.user.request.SignUpRequestDto;
 import com.sparta.sparta_lecture_server.dto.user.response.UserResponseDto;
