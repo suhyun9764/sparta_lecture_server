@@ -1,6 +1,6 @@
 package com.sparta.sparta_lecture_server.constants.user;
 
-public class Message {
+public class Messages {
 
     public static final String EMAIL_DUPLICATE = "중복된 이메일 입니다";
     public static final String WRONG_ADMIN_TOKEN = "관리자 암호가 틀려 등록이 불가능합니다";

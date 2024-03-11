@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.sparta.sparta_lecture_server.constants.user.Message.DELETE_COMPLETE;
-import static com.sparta.sparta_lecture_server.constants.user.Message.WRONG_INPUT_FORMAT;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.DELETE_COMPLETE;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.WRONG_INPUT_FORMAT;
 
 @RestController
 @RequiredArgsConstructor

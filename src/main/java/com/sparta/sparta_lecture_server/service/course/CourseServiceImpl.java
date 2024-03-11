@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.sparta.sparta_lecture_server.constants.course.Messages.NOT_FOUND_COURSE;
+
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
@@ -28,9 +30,9 @@ public class CourseServiceImpl implements CourseService {
         return new CourseInstructorResponseDto(course);
     }
 
-    @Override
+    @Override // 선택한 강의 조회
     public CourseInstructorResponseDto findById(Long courseId) {
-        Course course = courseRepository.findById(courseId).orElseThrow(() -> new NullPointerException("해당하는 강의가 존재하지 않습니다"));
+        Course course = courseRepository.findById(courseId).orElseThrow(() -> new NullPointerException(NOT_FOUND_COURSE));
         return new CourseInstructorResponseDto(course);
     }
 

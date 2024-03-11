@@ -15,8 +15,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import java.io.IOException;
 
-import static com.sparta.sparta_lecture_server.constants.user.Message.LOGIN_COMPLETE;
-import static com.sparta.sparta_lecture_server.constants.user.Message.LOGIN_FAIL;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.LOGIN_COMPLETE;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.LOGIN_FAIL;
 
 @Slf4j(topic = "로그인 및 JWT 생성")
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {

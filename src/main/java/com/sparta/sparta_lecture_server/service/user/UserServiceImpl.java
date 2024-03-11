@@ -10,8 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.sparta.sparta_lecture_server.constants.user.Message.EMAIL_DUPLICATE;
-import static com.sparta.sparta_lecture_server.constants.user.Message.WRONG_ADMIN_TOKEN;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.EMAIL_DUPLICATE;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.WRONG_ADMIN_TOKEN;
 
 @Service
 @RequiredArgsConstructor

@@ -38,7 +38,7 @@ public class Course extends DateValue{
     private String description;
 
     @OneToMany(mappedBy = "course")
-    private List<Comment> orderList = new ArrayList<>();
+    private List<Comment> commentList = new ArrayList<>();
 
     @OneToMany(mappedBy = "course")
     private List<Like> likeList = new ArrayList<>();

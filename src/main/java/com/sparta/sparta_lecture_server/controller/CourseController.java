@@ -27,6 +27,7 @@ public class CourseController {
         return ResponseEntity.ok(courseService.save(courseRequestDto));
     }
 
+    //선택한 강의 조회
     @GetMapping("/{course_id}")
     public ResponseEntity<CourseInstructorResponseDto> findById(@PathVariable Long course_id ){
         return ResponseEntity.ok(courseService.findById(course_id));

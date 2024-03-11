@@ -11,7 +11,7 @@ public interface CourseService {
 
     // 강의 등록
     CourseInstructorResponseDto save(CourseRequestDto courseRequestDto);
-
+    //선택한 강의 조회
     CourseInstructorResponseDto findById(Long courseId);
 
     List<CourseCategoryResponseDto> findByCategory(Category category, String sortBy, boolean isAsc);
