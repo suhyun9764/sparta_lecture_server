@@ -4,6 +4,7 @@ import com.sparta.sparta_lecture_server.dto.user.request.SignUpRequestDto;
 import com.sparta.sparta_lecture_server.entity.Comment;
 import com.sparta.sparta_lecture_server.entity.User.enums.GenderEnum;
 import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
+import com.sparta.sparta_lecture_server.entity.like.Like;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,10 @@ public class User {
     private RoleEnum roleEnum;
 
     @OneToMany(mappedBy = "user")
-    private List<Comment> orderList = new ArrayList<>();
+    private List<Comment> commentList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Like> likeList = new ArrayList<>();
 
     public User(SignUpRequestDto signUpRequestDto) {
         this.password = signUpRequestDto.getPassword();
