@@ -57,7 +57,7 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Transactional
-    @Override
+    @Override   // 대댓글 등록
     public List<CommentResponseDto> commentToComment(Long courseId, Long parentId, CommentRequestDto commentRequestDto, User user) {
         Course course = getCourse(courseId);
         getComment(parentId);

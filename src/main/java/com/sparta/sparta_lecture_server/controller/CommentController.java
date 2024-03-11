@@ -42,7 +42,7 @@ public class CommentController {
         return ResponseEntity.ok(DELETE_COMPLETE);
     }
 
-    @PostMapping("/{parentId}/replies")
+    @PostMapping("/{parentId}/replies") //대댓글
 
     public ResponseEntity<List<CommentResponseDto>> commentToComment(@PathVariable Long courseId, @PathVariable Long parentId,
                                                           @RequestBody CommentRequestDto commentRequestDto,

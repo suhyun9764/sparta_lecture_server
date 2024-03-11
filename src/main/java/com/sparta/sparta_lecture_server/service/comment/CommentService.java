@@ -13,6 +13,6 @@ public interface CommentService {
     CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user);
     //댓글 삭제
     void delete(Long courseId, Long commentId, User user);
-
+    //대댓글 등록
     List<CommentResponseDto> commentToComment(Long courseId, Long parentId, CommentRequestDto commentRequestDto, User user);
 }
