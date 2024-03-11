@@ -29,6 +29,7 @@ public class Comment {
     @Column
     private Long parentId = 0L;
 
+
     public Comment(User user, Course course, CommentRequestDto commentRequestDto) {
         this.user = user;
         this.course = course;

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.file.AccessDeniedException;
+import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -60,5 +62,15 @@ public class CommentServiceImpl implements CommentService{
             throw new IllegalArgumentException("댓글 작성자만 수정가능합니다");
 
         commentRepository.delete(comment);
+    }
+
+    @Override
+    public List<CommentResponseDto> commentToComment(Long courseId, Long parentId, CommentRequestDto commentRequestDto, User user) {
+        Course course = courseRepository.findById(courseId).orElseThrow(() -> new NullPointerException("해당하는 강의가 없습니다"));
+        Comment parent = commentRepository.findById(parentId).orElseThrow(() ->
+                new NullPointerException("해당하는 댓글이 없습니다"));
+        commentRequestDto.setParentId(parentId);
+        commentRepository.save(new Comment(user,course,commentRequestDto));
+        return commentRepository.findAllByParentId(parentId).stream().map(CommentResponseDto::new).toList();
     }
 }
