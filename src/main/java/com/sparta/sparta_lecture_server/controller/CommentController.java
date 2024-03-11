@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.sparta.sparta_lecture_server.constants.comment.messages.DELETE_COMPLETE;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/courses/{courseId}/comments")
@@ -25,19 +27,19 @@ public class CommentController {
     }
 
     @PutMapping("/{commentId}")
-
     public ResponseEntity<CommentResponseDto> update(@PathVariable Long courseId, @PathVariable Long commentId,
                                                      @RequestBody CommentRequestDto commentRequestDto,
                                                      @AuthenticationPrincipal UserDetailsImpl userDetails){
         return ResponseEntity.ok(commentService.update(courseId,commentId,commentRequestDto,userDetails.getUser()));
     }
 
-    @DeleteMapping("/{commentId}")
+    @DeleteMapping("/{commentId}") //댓글 삭제
+
 
     public ResponseEntity<String> delete(@PathVariable Long courseId, @PathVariable Long commentId,
                                                      @AuthenticationPrincipal UserDetailsImpl userDetails){
         commentService.delete(courseId,commentId,userDetails.getUser());
-        return ResponseEntity.ok("댓글 삭제가 완료되었습니다");
+        return ResponseEntity.ok(DELETE_COMPLETE);
     }
 
     @PostMapping("/{parentId}/replies")

@@ -11,7 +11,7 @@ public interface CommentService {
     CommentResponseDto save(Long courseId, CommentRequestDto commentRequestDto, User user);
 
     CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user);
-
+    //댓글 삭제
     void delete(Long courseId, Long commentId, User user);
 
     List<CommentResponseDto> commentToComment(Long courseId, Long parentId, CommentRequestDto commentRequestDto, User user);
