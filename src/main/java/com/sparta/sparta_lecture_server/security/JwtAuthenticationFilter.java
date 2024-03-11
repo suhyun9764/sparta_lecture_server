@@ -15,6 +15,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import java.io.IOException;
 
+import static com.sparta.sparta_lecture_server.constants.user.Message.LOGIN_COMPLETE;
+import static com.sparta.sparta_lecture_server.constants.user.Message.LOGIN_FAIL;
+
 @Slf4j(topic = "로그인 및 JWT 생성")
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final JwtUtil jwtUtil;
@@ -43,17 +46,24 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException {
         String username = ((UserDetailsImpl) authResult.getPrincipal()).getUsername();
         RoleEnum roleEnum = ((UserDetailsImpl) authResult.getPrincipal()).getUser().getRoleEnum();
 
         String token = jwtUtil.createToken(username, roleEnum);
+
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
         response.addHeader(JwtUtil.AUTHORIZATION_HEADER, token);
+        response.getWriter().write(String.format(LOGIN_COMPLETE,username));
     }
 
     @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException {
         response.setStatus(401);
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(LOGIN_FAIL);
     }
 
 }

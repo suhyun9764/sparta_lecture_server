@@ -6,9 +6,11 @@ import com.sparta.sparta_lecture_server.entity.User.User;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
-    @Transactional
+
+    //회원가입
     UserResponseDto signUp( SignUpRequestDto signUpRequestDto);
 
+    //회원탈퇴
     void delete(User userDetails);
 
 

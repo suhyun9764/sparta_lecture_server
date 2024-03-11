@@ -2,9 +2,7 @@ package com.sparta.sparta_lecture_server.dto.user.request;
 
 import com.sparta.sparta_lecture_server.entity.User.enums.GenderEnum;
 import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,9 +17,13 @@ public class SignUpRequestDto {
     @Size(min = 8, max = 15)
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,15}$",
             message = "비밀번호는 최소 8자 이상, 15자 이하이며 알파벳 대소문자, 숫자, 특수문자로 구성되어야 합니다.")
+    @NotBlank
     private String password;
+    @NotNull
     private GenderEnum gender;
+    @NotBlank
     private String phone;
+    @NotBlank
     private String address;
     private RoleEnum roleEnum = RoleEnum.USER;
     private boolean admin = false;
