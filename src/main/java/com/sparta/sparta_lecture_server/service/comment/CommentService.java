@@ -7,7 +7,7 @@ import com.sparta.sparta_lecture_server.entity.User.User;
 import java.util.List;
 
 public interface CommentService {
-
+    // 댓글 등록
     CommentResponseDto save(Long courseId, CommentRequestDto commentRequestDto, User user);
 
     CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user);

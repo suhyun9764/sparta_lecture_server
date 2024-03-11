@@ -15,9 +15,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/courses/{courseId}/comments")
 public class CommentController {
+
     private final CommentService commentService;
 
-    @PostMapping
+    @PostMapping //댓글 등록
     public ResponseEntity<CommentResponseDto> save(@PathVariable Long courseId, @RequestBody CommentRequestDto commentRequestDto,
                                                    @AuthenticationPrincipal UserDetailsImpl userDetails){
         return ResponseEntity.ok(commentService.save(courseId,commentRequestDto,userDetails.getUser()));
