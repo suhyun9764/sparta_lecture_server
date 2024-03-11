@@ -29,4 +29,12 @@ public class CommentController {
                                                      @AuthenticationPrincipal UserDetailsImpl userDetails){
         return ResponseEntity.ok(commentService.update(courseId,commentId,commentRequestDto,userDetails.getUser()));
     }
+
+    @DeleteMapping("/{commentId}")
+
+    public ResponseEntity<String> delete(@PathVariable Long courseId, @PathVariable Long commentId,
+                                                     @AuthenticationPrincipal UserDetailsImpl userDetails){
+        commentService.delete(courseId,commentId,userDetails.getUser());
+        return ResponseEntity.ok("댓글 삭제가 완료되었습니다");
+    }
 }

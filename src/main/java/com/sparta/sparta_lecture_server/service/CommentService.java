@@ -9,4 +9,6 @@ public interface CommentService {
     CommentResponseDto save(Long courseId, CommentRequestDto commentRequestDto, User user);
 
     CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user);
+
+    void delete(Long courseId, Long commentId, User user);
 }

@@ -29,8 +29,9 @@ public class CommentServiceImpl implements CommentService{
     @Override
     @Transactional
     public CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user) {
-        courseRepository.findById(courseId).orElseThrow(() ->
-                new NullPointerException("해당하는 강의가 없습니다"));
+        if(!courseRepository.existsById(courseId)){
+            throw new NullPointerException("해당하는 강의가 없습니다");
+        }
         Comment comment = commentRepository.findById(commentId).orElseThrow(() ->
                 new NullPointerException("해당하는 댓글이 없습니다"));
 
@@ -43,5 +44,21 @@ public class CommentServiceImpl implements CommentService{
         }
 
         throw new IllegalArgumentException("댓글 작성자만 수정가능합니다");
+    }
+
+    @Transactional
+    @Override
+    public void delete(Long courseId, Long commentId, User user) {
+        if(!courseRepository.existsById(courseId)){
+            throw new NullPointerException("해당하는 강의가 없습니다");
+        }
+
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() ->
+                new NullPointerException("해당하는 댓글이 없습니다"));
+
+        if(comment.getUser().getId()!=user.getId())
+            throw new IllegalArgumentException("댓글 작성자만 수정가능합니다");
+
+        commentRepository.delete(comment);
     }
 }
