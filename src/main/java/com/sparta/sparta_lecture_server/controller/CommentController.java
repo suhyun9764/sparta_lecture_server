@@ -15,9 +15,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/courses/{courseId}/comments")
 public class CommentController {
     private final CommentService commentService;
+
     @PostMapping
-    public ResponseEntity<CommentResponseDto> save(@PathVariable Long courseId, @RequestBody CommentRequestDto commentRequestDto
-    ,@AuthenticationPrincipal UserDetailsImpl userDetails){
+    public ResponseEntity<CommentResponseDto> save(@PathVariable Long courseId, @RequestBody CommentRequestDto commentRequestDto,
+                                                   @AuthenticationPrincipal UserDetailsImpl userDetails){
         return ResponseEntity.ok(commentService.save(courseId,commentRequestDto,userDetails.getUser()));
+    }
+
+    @PutMapping("/{commentId}")
+
+    public ResponseEntity<CommentResponseDto> update(@PathVariable Long courseId, @PathVariable Long commentId,
+                                                     @RequestBody CommentRequestDto commentRequestDto,
+                                                     @AuthenticationPrincipal UserDetailsImpl userDetails){
+        return ResponseEntity.ok(commentService.update(courseId,commentId,commentRequestDto,userDetails.getUser()));
     }
 }

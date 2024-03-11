@@ -35,4 +35,8 @@ public class Comment {
         this.content = commentRequestDto.getContent();
         this.parentId = commentRequestDto.getParentId();
     }
+
+    public void update(CommentRequestDto commentRequestDto) {
+        this.content = commentRequestDto.getContent();
+    }
 }

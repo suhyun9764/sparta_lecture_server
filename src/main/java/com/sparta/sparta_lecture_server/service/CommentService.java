@@ -7,4 +7,6 @@ import com.sparta.sparta_lecture_server.entity.User.User;
 public interface CommentService {
 
     CommentResponseDto save(Long courseId, CommentRequestDto commentRequestDto, User user);
+
+    CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user);
 }
