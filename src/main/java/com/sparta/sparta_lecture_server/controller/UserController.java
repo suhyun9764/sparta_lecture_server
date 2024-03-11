@@ -22,6 +22,12 @@ import static com.sparta.sparta_lecture_server.constants.user.Message.WRONG_INPU
 @RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
+
+    @GetMapping("/login-page")
+    public String customLoginPage() {
+        return "로그인 해주세요";
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<UserResponseDto> signUp(@RequestBody @Valid SignUpRequestDto signUpRequestDto,
                                                   BindingResult bindingResult){
