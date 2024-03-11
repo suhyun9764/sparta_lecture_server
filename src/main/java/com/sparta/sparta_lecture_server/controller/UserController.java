@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 import static com.sparta.sparta_lecture_server.constants.user.Messages.*;
@@ -36,9 +37,16 @@ public class UserController {
     }
 
     @DeleteMapping("/delete") // 회원 탈퇴
-    public ResponseEntity<String> delete(@AuthenticationPrincipal UserDetailsImpl userDetails){
+    public ResponseEntity<String> delete(@AuthenticationPrincipal UserDetailsImpl userDetails) throws AccessDeniedException {
+        checkHasToken(userDetails); // 로그인 확인
         userService.delete(userDetails.getUser());
         return ResponseEntity.ok(DELETE_COMPLETE);
+    }
+
+    private static void checkHasToken(UserDetailsImpl userDetails) throws AccessDeniedException {
+        if (userDetails ==null){
+            throw new AccessDeniedException("userDetail is null");
+        }
     }
 
     private static void checkInputFormat(BindingResult bindingResult) {
