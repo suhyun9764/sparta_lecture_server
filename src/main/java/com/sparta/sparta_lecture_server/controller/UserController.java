@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.sparta.sparta_lecture_server.constants.user.Messages.DELETE_COMPLETE;
-import static com.sparta.sparta_lecture_server.constants.user.Messages.WRONG_INPUT_FORMAT;
+import static com.sparta.sparta_lecture_server.constants.user.Messages.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,7 +24,7 @@ public class UserController {
 
     @GetMapping("/login-page")
     public String customLoginPage() {
-        return "로그인 해주세요";
+        return PLEASE_LOGIN;
     }
 
     @PostMapping("/signup")
