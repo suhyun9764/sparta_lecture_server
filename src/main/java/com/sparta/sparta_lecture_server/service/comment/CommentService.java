@@ -9,7 +9,7 @@ import java.util.List;
 public interface CommentService {
     // 댓글 등록
     CommentResponseDto save(Long courseId, CommentRequestDto commentRequestDto, User user);
-
+    // 댓글 수정
     CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user);
     //댓글 삭제
     void delete(Long courseId, Long commentId, User user);

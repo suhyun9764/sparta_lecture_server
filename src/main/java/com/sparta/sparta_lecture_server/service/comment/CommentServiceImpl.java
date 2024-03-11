@@ -30,7 +30,7 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    @Transactional
+    @Transactional  // 댓글 수정
     public CommentResponseDto update(Long courseId, Long commentId, CommentRequestDto commentRequestDto, User user) {
         checkCourseExist(courseId);
         Comment comment = getComment(commentId);
@@ -45,7 +45,7 @@ public class CommentServiceImpl implements CommentService{
 
 
     @Transactional
-    @Override
+    @Override   // 댓글 삭제
     public void delete(Long courseId, Long commentId, User user) {
         checkCourseExist(courseId);
         Comment comment = getComment(commentId);

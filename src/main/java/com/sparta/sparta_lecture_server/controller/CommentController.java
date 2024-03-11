@@ -26,7 +26,7 @@ public class CommentController {
         return ResponseEntity.ok(commentService.save(courseId,commentRequestDto,userDetails.getUser()));
     }
 
-    @PutMapping("/{commentId}")
+    @PutMapping("/{commentId}") //댓글 수정
     public ResponseEntity<CommentResponseDto> update(@PathVariable Long courseId, @PathVariable Long commentId,
                                                      @RequestBody CommentRequestDto commentRequestDto,
                                                      @AuthenticationPrincipal UserDetailsImpl userDetails){
