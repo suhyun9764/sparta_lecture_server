@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
     private final String ADMIN_TOKEN = "AAABnvxRVklrnYxKZ0aHgTBcXukeZygoC";
 
     @Transactional
-    @Override
+    @Override   //회원 가입
     public UserResponseDto signUp(SignUpRequestDto signUpRequestDto) {
         checkDuplicateEmail(signUpRequestDto);  //이메일 중복 검사
         assignAdminRole(signUpRequestDto);  // 관리자 권한 선택 시 권한 부여
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
         return new UserResponseDto(saveUser);
     }
     @Transactional
-    @Override
+    @Override   //회원 탈퇴
     public void delete(User user) {
         userRepository.delete(user);
     }

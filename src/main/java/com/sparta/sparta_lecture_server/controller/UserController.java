@@ -22,12 +22,12 @@ import static com.sparta.sparta_lecture_server.constants.user.Messages.*;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/login-page")
+    @GetMapping("/login-page") //로그인 요청 페이지
     public String customLoginPage() {
         return PLEASE_LOGIN;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/signup") // 회원 가입
     public ResponseEntity<UserResponseDto> signUp(@RequestBody @Valid SignUpRequestDto signUpRequestDto,
                                                   BindingResult bindingResult){
         checkInputFormat(bindingResult);
@@ -35,7 +35,7 @@ public class UserController {
         return ResponseEntity.ok(responseDto);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete") // 회원 탈퇴
     public ResponseEntity<String> delete(@AuthenticationPrincipal UserDetailsImpl userDetails){
         userService.delete(userDetails.getUser());
         return ResponseEntity.ok(DELETE_COMPLETE);
