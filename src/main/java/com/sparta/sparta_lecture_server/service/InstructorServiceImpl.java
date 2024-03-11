@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class InstructorServiceImpl implements InstructorService {
     private final InstructorRepository instructorRepository;
 
+    //강사 등록
     @Override
     public InstructorResponseDto save(InstructorRequestDto requestDto, RoleEnum roleEnum) {
         return new InstructorResponseDto(instructorRepository.save(new Instructor(requestDto)));

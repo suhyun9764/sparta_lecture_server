@@ -25,7 +25,6 @@ public class InstructorController {
     @Secured(ADMIN)
     public ResponseEntity<InstructorResponseDto> save(@RequestBody InstructorRequestDto requestDto,
                                                       @AuthenticationPrincipal UserDetailsImpl userDetails){
-        System.out.println("come");
         return ResponseEntity.ok(instructorService.save(requestDto,userDetails.getUser().getRoleEnum()));
     }
 }

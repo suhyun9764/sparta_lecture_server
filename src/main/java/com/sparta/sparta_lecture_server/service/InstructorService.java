@@ -5,5 +5,6 @@ import com.sparta.sparta_lecture_server.dto.instructor.response.InstructorRespon
 import com.sparta.sparta_lecture_server.entity.User.enums.RoleEnum;
 
 public interface InstructorService {
+    //강사 등록
     InstructorResponseDto save(InstructorRequestDto requestDto, RoleEnum roleEnum);
 }
