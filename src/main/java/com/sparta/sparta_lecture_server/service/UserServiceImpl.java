@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService{
 
         return new UserResponseDto(saveUser);
     }
+
+    @Override
+    public void delete(User user) {
+        userRepository.delete(user);
+    }
 }

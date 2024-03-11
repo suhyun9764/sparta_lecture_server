@@ -36,10 +36,10 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private RoleEnum roleEnum;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Comment> commentList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
     private List<Like> likeList = new ArrayList<>();
 
     public User(SignUpRequestDto signUpRequestDto) {
